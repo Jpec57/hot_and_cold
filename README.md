@@ -1,26 +1,13 @@
-# Flutter starter
+# Build your first Flutter Application 
 
-This is a starter for any Flutter project.
+## Introduction 
 
+This project is made for beginners who want to dive into Flutter. Some explanations will be given in a dedicated article on my personal website. 
 
-## Set up
+## Link
 
-- Check dependencies (Some basic dependencies have been chosen for you. Each dependency's use is specified, feel free to comment/remove those you won't use.)
-- Rename the project's name (in `pubspec.yaml`)
-- Change package name in android and ios
-- Change `BASE_REMOTE_URL` in `rest.dart`
+*NOT AVAILABLE YET*
 
-
-
-## A few commands to get started
-
-### Icon
-
-Run `flutter pub run flutter_launcher_icons:main` to generate your launch icon
-
-### JSON Serialization
-
-Run `flutter pub run build_runner build` after a change in the `models` directory.
 
 
 

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jpec_training/pages/home/home_view.dart';
+import 'package:hot_and_cold/pages/home/home_page.dart';
+import 'package:permission_handler/permission_handler.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Permission.location.request().isGranted;
+  await Permission.locationWhenInUse.request().isGranted;
   runApp(MyApp());
 }
 
@@ -11,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'lbc',
+      title: 'Hot and Cold',
       // supportedLocales: [
       //   const Locale(EN_LOCALE),
       //   const Locale(FR_LOCALE),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jpec_training/pages/home/home_view.dart';
+import 'package:hot_and_cold/pages/home/home_page.dart';
 
 class MainDrawer extends StatefulWidget {
   @override
@@ -7,7 +7,6 @@ class MainDrawer extends StatefulWidget {
 }
 
 class MainDrawerState extends State<MainDrawer> {
-
   @override
   void initState() {
     super.initState();
@@ -34,17 +33,14 @@ class MainDrawerState extends State<MainDrawer> {
                       ),
                     ],
                   ),
-                )
-            ),
+                )),
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage("images/app_icon.png"),
-                    fit: BoxFit.cover)
-            ),
+                    fit: BoxFit.cover)),
           ),
           ListTile(
-            title:
-            Text("Home"),
+            title: Text("Home"),
             onTap: () {
               Navigator.pushNamed(
                 context,
