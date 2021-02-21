@@ -14,6 +14,7 @@ class GeolocalisationState extends Equatable {
   final double previousDistance;
   final GeolocalisationStatus status;
 
+
   const GeolocalisationState.init(
       this.currentPosition, this.destinationPosition,
       {this.previousDistance = double.maxFinite,

@@ -36,8 +36,13 @@ class GeolocalisationBloc
         currentPos.longitude,
         destination.latitude,
         destination.longitude);
+    double distanceBetweenCalls = (currentDistanceInMeters - state.previousDistance).abs();
+    print("Distance $distanceBetweenCalls");
+    if (distanceBetweenCalls < 5){
+      return state.copyWith(status: GeolocalisationStatus.idle);
+    }
     bool isGettingCloser = currentDistanceInMeters <= state.previousDistance;
-    if (currentDistanceInMeters < 30) {
+    if (currentDistanceInMeters < 10) {
       return state.copyWith(
           currentPosition: state.destinationPosition,
           status: GeolocalisationStatus.arrived);

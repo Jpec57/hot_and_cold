@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Hot and Cold',
+      debugShowCheckedModeBanner: false,
       // supportedLocales: [
       //   const Locale(EN_LOCALE),
       //   const Locale(FR_LOCALE),
