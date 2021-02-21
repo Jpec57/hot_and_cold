@@ -8,12 +8,15 @@ import 'package:meta/meta.dart';
 part 'geolocalisation_event.dart';
 part 'geolocalisation_state.dart';
 
+//For coordinates https://www.latlong.net/
+
 class GeolocalisationBloc
     extends Bloc<GeolocalisationEvent, GeolocalisationState> {
   GeolocalisationBloc()
       : super(GeolocalisationState.init(
             new Position(latitude: 60, longitude: 40),
-            new Position(latitude: 57, longitude: 57)));
+            //48.620536, 2.434272)
+            new Position(latitude: 48.620536, longitude: 2.434272)));
 
   @override
   Stream<GeolocalisationState> mapEventToState(

@@ -129,8 +129,7 @@ class __HomeScreenState extends State<_HomeScreen> {
                               context.read<GeolocalisationBloc>().add(
                                   PositionChanged(
                                       currentPosition: Position(
-                                          latitude: 57,
-                                          longitude: 57)));
+                                          latitude: 48.620536, longitude: 2.434272)));
                             },
                             child: Icon(Icons.portable_wifi_off_outlined)),
                         Text("Longitude ${state.currentPosition.longitude}"),
