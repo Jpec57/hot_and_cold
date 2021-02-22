@@ -23,7 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  get: ^3.11.1
+  get: ^3.25.4
   # Useful for translation, date formatting
   intl: ^0.16.1
   flutter_localizations:
@@ -50,8 +50,6 @@ dependencies:
   geolocator: ^6.2.0
   ## PROJECT
   flutter_compass: '^0.4.3'
-
-
   #cloud_firestore: ^0.12.9+5
   #firebase_analytics: ^5.0.2
   #sentry: ">=3.0.0 <4.0.0"
@@ -59,6 +57,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
+dependency_overrides:
+  intl: ^0.17.0-nullsafety.2
 
 flutter_icons:
   android: "launcher_icon"

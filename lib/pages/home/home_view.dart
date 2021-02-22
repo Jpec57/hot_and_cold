@@ -65,19 +65,17 @@ class __HomeScreenState extends State<_HomeScreen> {
   void initState() {
     super.initState();
 
-    positionStream = Geolocator.getPositionStream(desiredAccuracy: LocationAccuracy.best).listen(
-            (Position position) {
+    positionStream =
+        Geolocator.getPositionStream(desiredAccuracy: LocationAccuracy.best)
+            .listen((Position position) {
 //          print(position == null ? 'Unknown' : position.latitude.toString() + ', ' + position.longitude.toString());
-  //        print("EVENT ! ");
+      //        print("EVENT ! ");
 
-          context.read<GeolocalisationBloc>().add(
-              PositionChanged(
-                  currentPosition: Position(
-                      latitude: position.latitude,
-                      longitude: position.longitude)));
-        });
+      context.read<GeolocalisationBloc>().add(PositionChanged(
+          currentPosition: Position(
+              latitude: position.latitude, longitude: position.longitude)));
+    });
   }
-
 
   @override
   void dispose() {
@@ -96,25 +94,27 @@ class __HomeScreenState extends State<_HomeScreen> {
     }
   }
 
-  String _getIndicationAccordingToStatus(GeolocalisationStatus status){
-    if (status == GeolocalisationStatus.idle){
+  String _getIndicationAccordingToStatus(GeolocalisationStatus status) {
+    if (status == GeolocalisationStatus.idle) {
       return "Il faut bouger pour avoir des indications.";
     }
-    return status == GeolocalisationStatus.isGettingCloser ? "Tu chauffes !": "Tu refroidis...";
+    return status == GeolocalisationStatus.isGettingCloser
+        ? "Tu chauffes !"
+        : "Tu refroidis...";
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<GeolocalisationBloc, GeolocalisationState>(
       listener: (context, state) {
-        if (state.status == GeolocalisationStatus.arrived){
+        if (state.status == GeolocalisationStatus.arrived) {
           positionStream.cancel();
         }
       },
       child: BlocBuilder<GeolocalisationBloc, GeolocalisationState>(
         buildWhen: (previous, current) => previous.status != current.status,
         builder: (context, state) {
-          if (state.status == GeolocalisationStatus.arrived){
+          if (state.status == GeolocalisationStatus.arrived) {
             return CongratulationView();
           }
           return AnimatedContainer(
@@ -127,26 +127,32 @@ class __HomeScreenState extends State<_HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Expanded(
-                    child: Center(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          //color: Colors.white,
-                          border: Border.all(width: 1),
-                          borderRadius: BorderRadius.circular(10)
+                    child: Column(
+                      children: [
+                        Center(
+                          child: Container(
+                            decoration: BoxDecoration(
+                                //color: Colors.white,
+                                border: Border.all(width: 1),
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 8.0, right: 8, top: 16, bottom: 16),
+                              child: Text(
+                                _getIndicationAccordingToStatus(state.status),
+                                textAlign: TextAlign.center,
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            ),
+                          ),
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 8.0, right: 8, top: 16, bottom: 16),
-                          child: Text(_getIndicationAccordingToStatus(state.status), textAlign: TextAlign.center, style: TextStyle(fontSize: 20),),
-                        ),
-                      ),
+                      ],
                     ),
                   ),
                   Expanded(
                     child: Compass(),
                   ),
-                  Expanded(
-                    child: Container()
-                  )
+                  Expanded(child: Container())
                 ],
               ),
             ),
