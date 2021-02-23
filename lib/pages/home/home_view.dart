@@ -129,19 +129,21 @@ class __HomeScreenState extends State<_HomeScreen> {
                   Expanded(
                     child: Column(
                       children: [
-                        Center(
-                          child: Container(
-                            decoration: BoxDecoration(
-                                //color: Colors.white,
-                                border: Border.all(width: 1),
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 8.0, right: 8, top: 16, bottom: 16),
-                              child: Text(
-                                _getIndicationAccordingToStatus(state.status),
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 20),
+                        Expanded(
+                          child: Center(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  //color: Colors.white,
+                                  border: Border.all(width: 1),
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 8.0, right: 8, top: 16, bottom: 16),
+                                child: Text(
+                                  _getIndicationAccordingToStatus(state.status),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 20),
+                                ),
                               ),
                             ),
                           ),
