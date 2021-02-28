@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -12,18 +13,26 @@ class Compass extends StatefulWidget {
 
 class _CompassState extends State<Compass> {
   double _heading = 0;
+  StreamSubscription compassPos;
 
   String get _readout => _heading.toStringAsFixed(0) + '°';
 
   @override
   void initState() {
     super.initState();
-    FlutterCompass.events.listen((double x) {
+    compassPos = FlutterCompass.events.listen((double x) {
       setState(() {
         _heading = x;
       });
       print("NEW HEADING $x");
     });
+  }
+
+
+  @override
+  void dispose() {
+    super.dispose();
+    compassPos.cancel();
   }
 
   final TextStyle _style = TextStyle(
@@ -55,13 +64,13 @@ class CompassPainter extends CustomPainter {
     Paint circle = _brush..color = Colors.black26;
 
     Paint needle = _brush
-      ..color = Colors.redAccent
+      ..color = Colors.black
       ..strokeWidth = 2;
 
     double radius = min(size.width / 2, size.height / 2);
     Offset center = Offset(size.width / 2, size.height / 2);
 
-    double startRadiusPercent = 0.6;
+    double startRadiusPercent = 0.7;
     double endRadiusPercent = 0.9;
 
     Offset start = Offset(center.dx + radius * startRadiusPercent * cos(angle),

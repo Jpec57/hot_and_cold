@@ -123,7 +123,6 @@ class __HomeScreenState extends State<_HomeScreen> {
                 gradient: _getGradientAccordingToStatus(state.status)),
             child: SafeArea(
               child: Column(
-                //mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Expanded(
@@ -133,16 +132,33 @@ class __HomeScreenState extends State<_HomeScreen> {
                           child: Center(
                             child: Container(
                               decoration: BoxDecoration(
-                                  //color: Colors.white,
-                                  border: Border.all(width: 1),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 8.0, right: 8, top: 16, bottom: 16),
-                                child: Text(
-                                  _getIndicationAccordingToStatus(state.status),
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 20),
+//                                  border: Border.all(width: 1),
+ //                                 borderRadius: BorderRadius.circular(10)
+                              ),
+                              child: GestureDetector(
+                                onTap: (){
+                                  context.read<GeolocalisationBloc>().add(PositionChanged(
+                                      currentPosition: Position(
+                                          latitude: 50.620536, longitude: 2.434272)));
+                                },
+                                onDoubleTap: (){
+                                  context.read<GeolocalisationBloc>().add(PositionChanged(
+                                      currentPosition: Position(
+                                          latitude: 49.620536, longitude: 2.434272)));
+                                },
+                                onLongPress: (){
+                                  context.read<GeolocalisationBloc>().add(PositionChanged(
+                                      currentPosition: Position(
+                                          latitude: 48.620536, longitude: 2.434272)));
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 8.0, right: 8, top: 16, bottom: 16),
+                                  child: Text(
+                                    _getIndicationAccordingToStatus(state.status),
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontSize: 24, fontFamily: "Akaya"),
+                                  ),
                                 ),
                               ),
                             ),
@@ -152,6 +168,7 @@ class __HomeScreenState extends State<_HomeScreen> {
                     ),
                   ),
                   Expanded(
+                    //child: Container(),
                     child: Compass(),
                   ),
                   Expanded(child: Container())
