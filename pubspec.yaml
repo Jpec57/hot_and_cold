@@ -48,6 +48,10 @@ dependencies:
   equatable: ^1.2.6
   permission_handler: ^5.1.0+2
   geolocator: ^6.2.0
+  jpec_base:
+    git:
+      url: https://github.com/Jpec57/jpec_base.git
+      ref: master
   ## PROJECT
   flutter_compass: '^0.4.3'
   #cloud_firestore: ^0.12.9+5
