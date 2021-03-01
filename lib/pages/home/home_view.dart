@@ -68,9 +68,6 @@ class __HomeScreenState extends State<_HomeScreen> {
     positionStream =
         Geolocator.getPositionStream(desiredAccuracy: LocationAccuracy.best)
             .listen((Position position) {
-//          print(position == null ? 'Unknown' : position.latitude.toString() + ', ' + position.longitude.toString());
-      //        print("EVENT ! ");
-
       context.read<GeolocalisationBloc>().add(PositionChanged(
           currentPosition: Position(
               latitude: position.latitude, longitude: position.longitude)));

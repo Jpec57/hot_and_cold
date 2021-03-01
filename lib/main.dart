@@ -17,11 +17,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Hot and Cold',
       debugShowCheckedModeBanner: false,
-      // supportedLocales: [
-      //   const Locale(EN_LOCALE),
-      //   const Locale(FR_LOCALE),
-      //   const Locale(JAP_LOCALE),
-      // ],
       navigatorKey: Get.key,
       theme: ThemeData(
           visualDensity: VisualDensity.adaptivePlatformDensity,

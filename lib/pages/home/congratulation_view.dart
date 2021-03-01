@@ -21,12 +21,10 @@ Proin efficitur imperdiet purus, vel porta urna aliquet aliquam. Vivamus finibus
 
   @override
   Widget build(BuildContext context) {
-    Size phoneSize = MediaQuery.of(context).size;
     return Container(
       color: Colors.blueGrey,
       child: SafeArea(
         child: Padding(
-          // padding: EdgeInsets.only(left: phoneSize.width * 0.05, right: phoneSize.width * 0.05, top: phoneSize.height * 0.1, bottom: phoneSize.height * 0.1),
           padding: EdgeInsets.only(left: context.phoneSize.width * 0.05, right: context.phoneSize.width * 0.05, top: context.phoneSize.height * 0.1, bottom: context.phoneSize.height * 0.1),
           child: Container(
             decoration: BoxDecoration(
