@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
   get: ^3.25.4
   # Useful for translation, date formatting
-  intl: ^0.16.1
+  intl: ^0.17.0
   flutter_localizations:
     sdk: flutter
   # On device storage
@@ -42,8 +42,6 @@ dependencies:
   flutter_compass: '^0.4.3'
   cupertino_icons: ^1.0.0
 
-dependency_overrides:
-  intl: ^0.17.0-nullsafety.2
 
 flutter_icons:
   android: "launcher_icon"
